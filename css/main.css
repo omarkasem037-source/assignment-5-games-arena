@@ -1,0 +1,681 @@
+:root {
+  --main-color: #cbfe1c;
+  --main-transition: 0.4s;
+  --text-color: #f1f1f1;
+  --secondary-color: #1a1a1a;
+  --bg-color: #0b0e13;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Days One", sans-serif;
+  font-weight: 1000px;
+  font-style: normal;
+  color: var(--text-color);
+}
+
+body {
+  font-family: "Chakra Petch", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+/* Start navbar section */
+
+.site-navbar {
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--secondary-color);
+  --bs-navbar-color: var(--text-color);
+  --bs-navbar-hover-color: var(--main-color);
+  --bs-navbar-active-color: var(--main-color);
+}
+
+.site-navbar .nav-link {
+  transition: color var(--main-transition);
+}
+
+.site-brand,
+.site-brand:hover {
+  color: var(--main-color);
+}
+
+.site-navbar .nav-icon {
+  color: var(--text-color);
+  transition: color var(--main-transition);
+}
+.site-navbar .nav-icon:hover {
+  color: var(--main-color);
+}
+
+.nav-signin {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  border: 0;
+  transition: opacity var(--main-transition);
+}
+.nav-signin:hover {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  opacity: 0.8;
+}
+
+.btn-shine-1 {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine-1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 10%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: left 0.6s ease;
+}
+.btn-shine-1:hover::after {
+  left: 120%;
+}
+
+/* end navbar section */
+
+/* Start home section */
+#home {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("../images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.hed {
+  line-height: 75px;
+}
+
+.img-border {
+  background: linear-gradient(to right, var(--main-color), #4ade80);
+}
+
+.text-main {
+  color: var(--main-color);
+}
+.badge-card {
+  bottom: -24px;
+  left: -24px;
+  background-color: var(--bg-color);
+}
+
+.btn-main {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  border: 2px solid var(--main-color);
+}
+
+.btn-outline-main {
+  background-color: transparent;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+}
+
+.btn-main:hover,
+.btn-outline-main:hover {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  border-color: var(--main-color);
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+
+.btn-shine:hover::before {
+  left: 150%;
+}
+
+/* End home section */
+
+/* Start our game section */
+
+.games-section {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  scroll-margin-top: 5rem;
+}
+
+.section-tag {
+  --tag-line: clamp(1.5rem, 6vw, 4rem);
+  position: relative;
+  display: inline-block;
+  color: var(--main-color);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+.section-tag::before,
+.section-tag::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: var(--tag-line);
+  height: 2px;
+}
+.section-tag::before {
+  left: calc(-1 * var(--tag-line) - 1rem);
+  background: linear-gradient(to right, transparent, var(--main-color));
+}
+.section-tag::after {
+  right: calc(-1 * var(--tag-line) - 1rem);
+  background: linear-gradient(to left, transparent, var(--main-color));
+}
+
+/* الكارت */
+.game-card {
+  cursor: pointer;
+}
+.game-card img {
+  transition: transform 0.5s ease;
+}
+.game-card:hover img {
+  transform: scale(1.08);
+}
+
+/* الطبقة الملونة اللي بتظهر من تحت على الهوفر */
+.game-overlay {
+  height: 66%;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--main-color) 80%, transparent),
+    color-mix(in srgb, var(--main-color) 40%, transparent),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.game-card:hover .game-overlay {
+  opacity: 1;
+}
+
+.game-tags {
+  top: -2rem;
+  transition: top 0.3s ease;
+}
+
+.game-tag i {
+  color: var(--main-color);
+}
+
+.game-card:hover .game-tags {
+  top: 1rem;
+}
+.game-tag {
+  backdrop-filter: blur(0.25rem);
+}
+
+.game-card .game-title {
+  color: var(--bg-color);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+.game-card:hover .game-title {
+  transform: translateY(0);
+}
+
+.game-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+.game-card:hover::after {
+  border-color: var(--main-color);
+}
+
+.games-arrow {
+  --bs-btn-hover-color: var(--main-color);
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: var(--main-color);
+  --bs-btn-active-color: var(--main-color);
+  --bs-btn-active-bg: transparent;
+  --bs-btn-active-border-color: var(--main-color);
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.view-all-btn {
+  --bs-btn-color: var(--main-color);
+  --bs-btn-border-color: var(--main-color);
+  --bs-btn-hover-color: var(--bg-color);
+  --bs-btn-hover-bg: var(--main-color);
+  --bs-btn-hover-border-color: var(--main-color);
+  --bs-btn-active-color: var(--bg-color);
+  --bs-btn-active-bg: var(--main-color);
+  --bs-btn-active-border-color: var(--main-color);
+}
+/*  End our game section  */
+
+/*  Start what we do section  */
+
+/* ================= WHAT WE DO ================= */
+
+.what-section {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  scroll-margin-top: 5rem;
+}
+
+/* ----- الكروت ----- */
+.service-card {
+  overflow: hidden;
+  background-color: var(--secondary-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color var(--main-transition);
+}
+.service-card:hover {
+  border-color: var(--main-color);
+}
+
+/* المثلثين في الركنين: بيدخلوا للكارت على الهوفر */
+.service-card::before,
+.service-card::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  transition: all var(--main-transition);
+}
+.service-card::before {
+  top: -1.5rem;
+  left: -1.5rem;
+  border-top: 1.5rem solid #4b5563;
+  border-right: 1.5rem solid transparent;
+}
+.service-card::after {
+  bottom: -1.5rem;
+  right: -1.5rem;
+  border-bottom: 1.5rem solid #4b5563;
+  border-left: 1.5rem solid transparent;
+}
+.service-card:hover::before {
+  top: 1rem;
+  left: 1rem;
+  border-top-color: var(--main-color);
+}
+.service-card:hover::after {
+  bottom: 1rem;
+  right: 1rem;
+  border-bottom-color: var(--main-color);
+}
+
+/* مربع الأيقونة: نسبة من الكارت وبيصغر لوحده على الموبايل */
+.service-icon {
+  width: clamp(3.5rem, 22%, 6rem);
+  aspect-ratio: 1;
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  background-color: #1f2937;
+  color: var(--main-color);
+  transition: all var(--main-transition);
+}
+.service-card:hover .service-icon {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+}
+
+.service-title {
+  font-size: clamp(1rem, 1.6vw, 1.5rem);
+}
+
+/* ----- اللوجوهات المتحركة (جزء من السكشن) ----- */
+.sponsors-block {
+  margin-top: clamp(3rem, 5vw, 4.5rem); /* بين الكروت والخط */
+  padding-block: clamp(4rem, 8vw, 7.5rem) clamp(4rem, 8vw, 8rem); /* فوق (لحد اللوجوهات) | تحت (لحد Our Team) */
+}
+
+/* الخط الرفيع اللي فوق: نص عرض الشاشة وبيتلاشى من الأطراف */
+.sponsors-line {
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--main-color), transparent);
+  box-shadow: 0 0 2rem color-mix(in srgb, var(--main-color) 60%, transparent);
+}
+
+/* الوهج البيضاوي ورا اللوجوهات */
+.sponsors-glow {
+  width: 95%;
+  height: clamp(14rem, 26vw, 30rem);
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--main-color) 70%, transparent) 0%,
+    color-mix(in srgb, var(--main-color) 25%, transparent) 45%,
+    transparent 70%
+  );
+}
+
+/* تلاشي الأطراف يمين وشمال */
+.logos-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+}
+
+/* حجم اللوجو بيتناسب مع الشاشة */
+.logo-box {
+  width: clamp(4.5rem, 7.5vw, 9rem);
+  aspect-ratio: 1;
+  background-color: var(--secondary-color);
+}
+
+.logos-track {
+  width: max-content;
+}
+.logos-left {
+  animation: logos-left 40s linear infinite;
+}
+.logos-right {
+  animation: logos-right 40s linear infinite;
+}
+
+/* gap-4 = 1.5rem، فبنشيل نصها (0.75rem) من الحساب عشان اللف يبقى متصل */
+@keyframes logos-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+@keyframes logos-right {
+  from {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+/*  End what we do section  */
+
+/* START OUR TEAM  */
+
+.team-section {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  scroll-margin-top: 5rem;
+}
+
+.team-card {
+  aspect-ratio: 8 / 9;
+  cursor: pointer;
+}
+
+/* الطبقة الرمادي اللي فوق الصورة: backdrop-filter بيحوّل اللي تحتها لأبيض وأسود.
+   على الهوفر ارتفاعها بيقل لـ 0 فاللون بيظهر من تحت لفوق */
+.team-gray {
+  height: 100%;
+  backdrop-filter: grayscale(1);
+  transition: height var(--main-transition);
+}
+.team-card:hover .team-gray {
+  height: 0;
+}
+
+/* تدرج أسود من تحت عشان الكلام يبان */
+.team-shade {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1) 60%, transparent);
+}
+
+.team-name {
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+}
+
+/* الاسم المستعار اللي واقف بالطول */
+.team-nick {
+  writing-mode: vertical-rl;
+}
+
+.team-role,
+.team-nick {
+  transition: color var(--main-transition);
+}
+
+/* على الهوفر الدور والاسم المستعار بياخدوا اللون الأساسي */
+.team-card:hover .team-role,
+.team-card:hover .team-nick {
+  color: var(--main-color);
+}
+
+/* ========== Contact Section ========== */
+.contact {
+  background: linear-gradient(135deg, var(--secondary-color), var(--bg-color));
+  color: var(--text-color);
+  /* يلغي الأزرق الافتراضي بتاع Bootstrap جوه السيكشن (الـ checkbox) */
+  --bs-primary: var(--main-color);
+  --bs-primary-rgb: 203, 254, 28;
+}
+
+.contact-muted {
+  color: #9ca3af;
+}
+
+/* الخطوط الجانبية جنب "CONTACT US" */
+.contact .section-label {
+  position: relative;
+  display: inline-block;
+  color: var(--main-color);
+  letter-spacing: 0.2em;
+}
+.contact .section-label::before,
+.contact .section-label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 64px;
+  height: 2px;
+  transform: translateY(-50%);
+}
+.contact .section-label::before {
+  left: -80px;
+  background: linear-gradient(to right, transparent, var(--main-color));
+}
+.contact .section-label::after {
+  right: -80px;
+  background: linear-gradient(to left, transparent, var(--main-color));
+}
+
+/* الكروت */
+.contact-card {
+  background-color: #1f2937;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  transition: border-color var(--main-transition);
+}
+.contact-info:hover {
+  border-color: var(--main-color);
+}
+
+/* دايرة الأيقونة: خلفية main-color وأيقونة غامقة */
+.contact-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  font-size: 1.6rem;
+}
+.contact-icon i {
+  color: var(--bg-color);
+  line-height: 1;
+}
+
+/* كارت Join Our Community */
+.community-card {
+  border-radius: 1rem;
+  background: linear-gradient(to right, var(--main-color), #4ade80);
+  color: var(--bg-color);
+}
+.community-card h3 {
+  color: var(--bg-color);
+}
+.social-btn {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: background-color var(--main-transition);
+}
+.social-btn i {
+  color: var(--main-color);
+  line-height: 1;
+}
+.social-btn:hover {
+  background-color: #000;
+}
+
+/* الفورم */
+.contact-form .form-label {
+  color: #d1d5db;
+}
+.contact-form .form-control,
+.contact-form .form-select {
+  background-color: #374151;
+  color: var(--text-color);
+  border: 1px solid #4b5563;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  transition:
+    border-color var(--main-transition),
+    box-shadow var(--main-transition);
+}
+.contact-form .form-control::placeholder {
+  color: #9ca3af;
+}
+.contact-form .form-control:focus,
+.contact-form .form-select:focus {
+  background-color: #374151;
+  color: var(--text-color);
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 0.2rem rgb(203 254 28 / 0.35);
+}
+.contact-form textarea {
+  resize: none;
+}
+
+/* الـ checkbox */
+.contact .contact-form .form-check-input {
+  width: 1.25em;
+  height: 1.25em;
+  margin-top: 0.15em;
+  accent-color: var(--main-color);
+  background-color: #374151;
+  border: 1px solid #4b5563;
+  cursor: pointer;
+}
+.contact .contact-form .form-check-input:checked[type="checkbox"] {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%230b0e13' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+.contact .contact-form .form-check-input:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 0.2rem rgb(203 254 28 / 0.35);
+}
+
+/* زرار Send Message + لمعة */
+.btn-main {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  border: 0;
+  border-radius: 0.5rem;
+  transition: background-color var(--main-transition);
+}
+.btn-main:hover,
+.btn-main:focus-visible {
+  background-color: rgb(203 254 28 / 0.8);
+  color: var(--bg-color);
+}
+.btn-main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgb(255 255 255 / 0.5), transparent);
+  transform: skewX(-20deg);
+}
+.btn-main:hover::after {
+  left: 130%;
+  transition: left 0.7s ease;
+}
+
+/* الإحصائيات */
+.contact-divider {
+  border-color: #374151 !important;
+}
+.stat-number {
+  color: var(--main-color);
+  font-family: "Days One", sans-serif;
+  font-size: 1.5rem;
+}
+
+/* موبايل: نصغّر الخطوط الجانبية عشان ما تخرجش برا الشاشة */
+@media (max-width: 575.98px) {
+  .contact .section-label::before {
+    left: -44px;
+    width: 32px;
+  }
+  .contact .section-label::after {
+    right: -44px;
+    width: 32px;
+  }
+}
+
+/* ========== Footer ========== */
+.site-footer {
+  background-color: #000;
+  color: var(--text-color);
+}
+.footer-logo {
+  color: var(--main-color);
+}
+.footer-muted {
+  color: #9ca3af;
+}
+.footer-link {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color var(--main-transition);
+}
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--main-color);
+}
+.footer-bottom {
+  border-top: 1px solid #1f2937;
+}
